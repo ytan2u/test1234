@@ -1,0 +1,242 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+/* global element styling */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+    background-color: #DBEEEF;
+    line-height: 1.5;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+h1,
+h2 {
+    font-family: "Cormorant Garamond", serif;
+}
+
+header {
+    border-bottom: 10px double #193e2e;
+}
+
+footer {
+    border-top: 10px double #193e2e;
+    padding: 3rem;
+    text-align: center;
+}
+
+article {
+    padding: 0 2rem;
+}
+
+a {
+    color: #008077;
+}
+
+a:hover {
+    color: #51713a;
+    text-decoration: none;
+}
+
+
+/* specific styling for product cards */
+
+.tagline {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+}
+
+.card {
+    background-color: #193e2e;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.card h2 {
+    padding: 1rem 1rem 0 1rem;
+}
+
+.card p {
+    padding: 0rem 1rem 1rem 1rem;
+}
+
+.card img {
+    border-radius: 0;
+}
+
+figcaption {
+    text-align: center;
+}
+
+.flexrow1 img,
+.flexrow2 img {
+    border-radius: 10px;
+}
+
+.bkgd {
+    background-color: #ffffff;
+}
+
+
+/* layout - mobile first! */
+
+.container,
+.home,
+.products {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+
+/* navbar */
+
+nav {
+    margin: 0 1rem;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav a {
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    background-color: #193e2e;
+    color: #ffffff;
+    border-radius: 10px;
+    margin: 0 0 2rem 0;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: #008077;
+    color: #ffffff;
+}
+
+nav img {
+    max-width: 200px;
+}
+
+nav .logo a {
+    background-color: transparent;
+    margin: 0;
+}
+
+
+/* home page: make the captions display on the images -- OUTSIDE the media queries because we want this to happen always on all devices */
+
+.flexrow1 figure,
+.flexrow2 figure {
+    display: grid;
+    grid-template-rows: 2fr 0.1fr;
+    margin-bottom: 2rem;
+}
+
+.flexrow1 img,
+.flexrow2 img {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border-radius: 10px 10px 0 0;
+}
+
+.flexrow1 figcaption,
+.flexrow2 figcaption {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    background-color: #193e2e;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+@media (min-width: 550px) {
+    nav {
+        margin-left: 0;
+    }
+    nav ul {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    nav a {
+        margin: 0 0 3rem 0;
+    }
+    .logo {
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 750px) {
+    .container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    .prodcontainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    .card h2,
+    .card p {
+        padding: 0 1rem;
+    }
+    /* apply our flexbox layout */
+    .flexrow1,
+    .flexrow2 {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
+    .flexrow1 figure {
+        flex-basis: 30%;
+        margin-bottom: 0;
+    }
+    .flexrow2 figure {
+        flex-basis: 45%;
+        grid-template-rows: 2fr 0.5fr;
+    }
+}
+
+@media (min-width: 900px) {
+    nav ul {
+        justify-content: flex-start;
+    }
+    nav a {
+        margin-top: 5rem;
+    }
+    .logo {
+        flex-basis: auto;
+        margin-right: auto;
+    }
+    .flexrow2 figure {
+        flex-basis: 20%;
+        grid-template-rows: 2fr 0.2fr;
+    }
+}
